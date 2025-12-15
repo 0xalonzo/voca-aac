@@ -1,0 +1,150 @@
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111;
+  background: #0f1115;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 90px 1fr;
+}
+
+.topbar {
+  background: #151a22;
+  border-bottom: 1px solid #242b36;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.messageBox {
+  background: #0c0f14;
+  border: 1px solid #2a3240;
+  border-radius: 14px;
+  padding: 14px;
+  color: #e8eefc;
+  font-size: 22px;
+  line-height: 1.2;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.topActions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid #2a3240;
+  background: #0c0f14;
+  color: #e8eefc;
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.main {
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 14px;
+}
+
+.boardWrap {
+  background: #111722;
+  border: 1px solid #242b36;
+  border-radius: 18px;
+  padding: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+}
+
+.boardTitle {
+  color: #e8eefc;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.tile {
+  user-select: none;
+  border: 1px solid #2a3240;
+  background: #0c0f14;
+  color: #e8eefc;
+  border-radius: 16px;
+  padding: 14px 10px;
+  min-height: 84px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tile .label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tile .sub {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.tile:active {
+  transform: scale(0.98);
+}
+
+.sidebar {
+  background: #111722;
+  border: 1px solid #242b36;
+  border-radius: 18px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sideBtn {
+  width: 100%;
+  min-height: 64px;
+  border-radius: 16px;
+  border: 1px solid #2a3240;
+  background: #0c0f14;
+  color: #e8eefc;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sideBtn:active { transform: scale(0.98); }
+
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .main { grid-template-columns: 1fr; }
+}

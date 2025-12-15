@@ -1,0 +1,102 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  line-height: 1.1;
+}
+.title-main {
+  font-size: 18px;
+  font-weight: 700;
+}
+.title-sub {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.btn {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn.primary {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.phrasebar {
+  margin: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.placeholder {
+  opacity: 0.6;
+}
+
+.grid {
+  flex: 1;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.tile {
+  border-radius: 18px;
+  padding: 14px 10px;
+  min-height: 90px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.tile.category {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.tile-icon {
+  font-size: 26px;
+}
+
+.tile-label {
+  font-size: 16px;
+  font-weight: 650;
+  text-transform: none;
+}
