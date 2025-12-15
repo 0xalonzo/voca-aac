@@ -17,7 +17,7 @@ export type Board = {
 };
 
 export const CORE_TILES: Tile[] = [
-  { id: "core-i", label: "I" },
+  { id: "core-i", label: "I", speak: "i" },
   { id: "core-want", label: "want" },
   { id: "core-more", label: "more" },
   { id: "core-help", label: "help" },

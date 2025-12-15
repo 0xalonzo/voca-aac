@@ -16,7 +16,7 @@ function speakText(text: string) {
 
 type UserTile = Tile & { boardId: string };
 
-const LS_KEY = "voca_user_tiles_v1";
+const LS_KEY = "voca_buttonCustom";
 
 function loadUserTiles(): UserTile[] {
   try {
