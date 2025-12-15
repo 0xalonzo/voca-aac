@@ -1,10 +1,13 @@
 // src/boards.ts
+export const HOME_ID = "home";
 
 export type Tile = {
   id: string;
   label: string;
-  speak?: string;      // what gets spoken (defaults to label)
-  toBoardId?: string;  // if set, tile navigates to another board
+  speak?: string;
+  toBoardId?: string;
+  color?: string; // optional tile background
+  icon?: string;  // optional emoji for now (we’ll do real icons next)
 };
 
 export type Board = {
@@ -13,39 +16,44 @@ export type Board = {
   tiles: Tile[];
 };
 
-export const HOME_ID = "home";
+export const CORE_TILES: Tile[] = [
+  { id: "core-i", label: "I" },
+  { id: "core-want", label: "want" },
+  { id: "core-more", label: "more" },
+  { id: "core-help", label: "help" },
+  { id: "core-stop", label: "stop" },
+  { id: "core-go", label: "go" },
+  { id: "core-like", label: "like" },
+  { id: "core-dont", label: "don’t" },
+  { id: "core-yes", label: "yes" },
+  { id: "core-no", label: "no" },
+  { id: "core-what", label: "what" },
+  { id: "core-not", label: "not" },
+];
 
 export const boards: Record<string, Board> = {
-  home: {
-    id: "home",
+  [HOME_ID]: {
+    id: HOME_ID,
     title: "Home",
     tiles: [
-      { id: "i", label: "I", speak: "i" },
-      { id: "my", label: "my"},
-      { id: "have", label: "have"},
-      { id: "want", label: "want" },
-      { id: "help", label: "help" },
-      { id: "yes", label: "Yes" },
-      { id: "no", label: "No" },
-      { id: "more", label: "more" },
-      { id: "allDone", label: "all done", speak: "all done" },
-
-      { id: "needs", label: "Needs", toBoardId: "needs" },
-      { id: "feelings", label: "Feelings", toBoardId: "feelings" },
-      { id: "pain", label: "Pain", toBoardId: "pain" },
+      { id: "cat-quick", label: "Quick", toBoardId: "quick", color: "#1f2f5c" },
+      { id: "cat-feelings", label: "Feelings", toBoardId: "feelings", color: "#1f2f5c" },
+      { id: "cat-needs", label: "Needs", toBoardId: "needs", color: "#1f2f5c" },
+      { id: "cat-food", label: "Food/Drink", toBoardId: "food", color: "#1f2f5c" },
+      { id: "cat-pain", label: "Pain", toBoardId: "pain", color: "#1f2f5c" },
     ],
   },
 
-  needs: {
-    id: "needs",
-    title: "Needs",
+  quick: {
+    id: "quick",
+    title: "Quick",
     tiles: [
-      { id: "bathroom", label: "bathroom" },
-      { id: "water", label: "water" },
-      { id: "food", label: "food" },
-      { id: "rest", label: "rest" },
-      { id: "nurse", label: "call nurse", speak: "Please call the nurse." },
-      { id: "homeBtn", label: "Home", toBoardId: "home" },
+      { id: "home", label: "Home", toBoardId: HOME_ID },
+      { id: "q1", label: "Hi" },
+      { id: "q2", label: "Thank you" },
+      { id: "q3", label: "Please" },
+      { id: "q4", label: "Sorry" },
+      { id: "q5", label: "I need help", speak: "I need help" },
     ],
   },
 
@@ -53,12 +61,38 @@ export const boards: Record<string, Board> = {
     id: "feelings",
     title: "Feelings",
     tiles: [
-      { id: "happy", label: "happy" },
-      { id: "sad", label: "sad" },
-      { id: "angry", label: "angry" },
-      { id: "scared", label: "scared" },
-      { id: "tired", label: "tired" },
-      { id: "homeBtn", label: "Home", toBoardId: "home" },
+      { id: "home", label: "Home", toBoardId: HOME_ID },
+      { id: "f1", label: "Happy" },
+      { id: "f2", label: "Sad" },
+      { id: "f3", label: "Mad" },
+      { id: "f4", label: "Scared" },
+      { id: "f5", label: "Tired" },
+    ],
+  },
+
+  needs: {
+    id: "needs",
+    title: "Needs",
+    tiles: [
+      { id: "home", label: "Home", toBoardId: HOME_ID },
+      { id: "n1", label: "Bathroom", speak: "I need the bathroom" },
+      { id: "n2", label: "Water", speak: "I want water" },
+      { id: "n3", label: "Eat", speak: "I want to eat" },
+      { id: "n4", label: "Break", speak: "I need a break" },
+      { id: "n5", label: "Nurse", speak: "Please call the nurse" },
+    ],
+  },
+
+  food: {
+    id: "food",
+    title: "Food / Drink",
+    tiles: [
+      { id: "home", label: "Home", toBoardId: HOME_ID },
+      { id: "fd1", label: "Water" },
+      { id: "fd2", label: "Juice" },
+      { id: "fd3", label: "Coffee" },
+      { id: "fd4", label: "Snack" },
+      { id: "fd5", label: "Meal" },
     ],
   },
 
@@ -66,21 +100,12 @@ export const boards: Record<string, Board> = {
     id: "pain",
     title: "Pain",
     tiles: [
-      { id: "pain0", label: "0", speak: "I dont feel any pain." },
-      { id: "pain1", label: "1", speak: "My pain level is at one." },
-      { id: "pain2", label: "2", speak: "My pain level is at two." },
-      { id: "pain3", label: "3", speak: "My pain level is at three." },
-      { id: "pain4", label: "4", speak: "My pain level is at four." },
-      { id: "pain5", label: "5", speak: "My pain level is at five."},
-      { id: "pain6", label: "6", speak: "My pain level is at six." },
-      { id: "pain7", label: "7", speak: "My pain level is at seven."},
-      { id: "pain8", label: "8", speak: "My pain level is at eight." },
-      { id: "pain9", label: "9", speak: "My pain level is at nine."},
-      { id: "pain10", label: "10", speak: "It hurts so much. Level 10" },
-      { id: "sharp", label: "Sharp", speak: "I have sharp pain."},
-      {id: "pulse", label: "pulse", speak: "My pain is pulsating."},
-      
-      { id: "homeBtn", label: "Home", toBoardId: "home" },
+      { id: "home", label: "Home", toBoardId: HOME_ID },
+      { id: "p1", label: "No pain", speak: "I have no pain" },
+      { id: "p2", label: "A little", speak: "I have a little pain" },
+      { id: "p3", label: "Medium", speak: "I have medium pain" },
+      { id: "p4", label: "A lot", speak: "I have a lot of pain" },
+      { id: "p5", label: "Worst", speak: "This is the worst pain" },
     ],
   },
 };
